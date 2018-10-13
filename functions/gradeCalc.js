@@ -12,11 +12,11 @@ let calculator = (score, total) => {
 
   }else if(grade >= 60){
     letterGrade = "D"
-    
+
   }else{
     letterGrade = "F"
   }
   return `You got an ${letterGrade} (${grade}%)!`
 }
 
-console.log(calculator(14, 20))
+console.log(calculator(1, 20))
