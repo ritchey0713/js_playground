@@ -1,16 +1,22 @@
 let calculator = (score, total) => {
   let grade = (score / total) * 100
-  if(grade <= 100 && grade >= 90){
-    return `You got an A (${grade}%)!`
-  }else if(grade <= 89 && grade >= 80){
-    return `You got an B (${grade}%)!`
-  }else if(grade <= 79 && grade >= 70){
-    return `You got an C (${grade}%)!`
-  }else if(grade <= 69 && grade >= 60){
-    return `You got an D (${grade}%)!`
+  letterGrade = ""
+  if(grade >= 90){
+    letterGrade = "A"
+    
+  }else if(grade >= 80){
+    letterGrade = "B"
+    
+  }else if(grade >= 70){
+    letterGrade = "C"
+
+  }else if(grade >= 60){
+    letterGrade = "D"
+    
   }else{
-    return `You got an F (${grade}%)!`
+    letterGrade = "F"
   }
+  return `You got an ${letterGrade} (${grade}%)!`
 }
 
 console.log(calculator(14, 20))
