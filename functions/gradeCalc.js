@@ -1,6 +1,6 @@
 let calculator = (score, total) => {
   let grade = (score / total) * 100
-  if(grade =< 100 && grade >= 90){
+  if(grade <= 100 && grade >= 90){
     return `You got an A (${grade}%)!`
   }else if(grade <= 89 && grade >= 80){
     return `You got an B (${grade}%)!`
