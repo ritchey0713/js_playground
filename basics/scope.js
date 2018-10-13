@@ -1,17 +1,31 @@
-let varOne = "varone"
+// let varOne = "varone"
+
+// if(true){
+//   console.log(varOne)
+//   let varTwo = 'varTwo'
+//   console.log(varTwo)
+//   if(true){
+//     let varFour = "varFour"
+//   }  
+// }
+
+// if(true){
+//   let varThree = "varThree"
+
+// }
+
+// console.log(varTwo)
+
+let name = "John"
 
 if(true){
-  console.log(varOne)
-  let varTwo = 'varTwo'
-  console.log(varTwo)
+   let name = "Mike"
   if(true){
-    let varFour = "varFour"
-  }  
+    name = "Jen"
+  console.log(name) // mike    
+  } 
 }
 
 if(true){
-  let varThree = "varThree"
-
+  console.log(name) // john
 }
-
-console.log(varTwo)
