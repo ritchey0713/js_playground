@@ -20,8 +20,13 @@ Person.prototype.setName = function(fullName){
 }
 
 const me = new Person("John", "Smith", 46, ["games", "drifting", "shooting"])
+
+me.getBio = function(){
+  return "this is fake!"
+}
 me.setName("Dave Smith")
 console.log(me.getBio())
 
 const person2 = new Person("Tony", "Turner", 19, ["Golfing", "Frisbee"])
+
 console.log(person2.getBio())
