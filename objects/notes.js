@@ -10,3 +10,11 @@ notes.forEach(() => {
 
 console.log(notes.length)
 console.log(notes)
+
+for(let i = 0; i < 3; i++ ){
+ console.log(i)
+}
+
+for(let i = 0; i < notes.length; i++){
+  console.log(notes[i])
+}
