@@ -20,8 +20,8 @@ const notes = [{
 //   console.log("testing?")
 // })
 
-console.log(notes.length)
-console.log(notes)
+// console.log(notes.length)
+// console.log(notes)
 
 // for(let i = 0; i < 3; i++ ){
 //   console.log(i)
@@ -31,5 +31,9 @@ console.log(notes)
 //   console.log(notes[i])
 // }
 
+const noteIndex = notes.findIndex((note, index) => {
+  console.log(note)
+  return note.title === "Vacation"
+})
 
-console.log(notes.indexOf({}))
+console.log(noteIndex)
