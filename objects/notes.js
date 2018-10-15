@@ -31,9 +31,17 @@ const notes = [{
 //   console.log(notes[i])
 // }
 
-const noteIndex = notes.findIndex((note, index) => {
-  console.log(note)
-  return note.title === "Vacation"
-})
+const findNote = (notes, noteTitle) => {
+  const noteIndex = notes.findIndex((note, index) => {
+      return note.title === noteTitle
+  })
 
-console.log(noteIndex)
+}
+
+
+// const noteIndex = notes.findIndex((note, index) => {
+//   console.log(note)
+//   return note.title === "Vacation"
+// })
+
+// console.log(noteIndex)
