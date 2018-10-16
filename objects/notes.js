@@ -38,14 +38,16 @@ const findNote = (notes, noteTitle) => {
 }
 
 const findNotes = function(notes, query){
-  notes.filter((note, index) => {
+  return notes.filter(function(note, index) {
     const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
-    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase()) 
     return isTitleMatch || isBodyMatch 
   })
 }
 
- console.log(filteredNotes)
+
+
+ console.log(findNotes(notes, "eat"))
 
 // const findNote = (notes, noteTitle) => {
 //   const noteIndex = notes.findIndex((note, index) => {
