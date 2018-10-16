@@ -8,7 +8,7 @@ const notes = [{
   title: "Algorithms",
   body: "Practice more!"
 },{
-  title: "Land a Dev Job!",
+  title: "land a Dev Job!",
   body: "Network more and more!!!"
 }]
 
@@ -47,7 +47,9 @@ const findNotes = function(notes, query){
 
 
 
- console.log(findNotes(notes, "eat"))
+//  console.log(findNotes(notes, "eat"))
+
+
 
 // const findNote = (notes, noteTitle) => {
 //   const noteIndex = notes.findIndex((note, index) => {
@@ -64,3 +66,19 @@ const findNotes = function(notes, query){
 // })
 
 // console.log(noteIndex)
+
+const sortNotes = (notes) => {
+  notes.sort((a, b) =>{
+    if(a.title.toLowerCase() < b.title.toLowerCase()){
+      return -1
+    }else if(a.title.toLowerCase() > b.title.toLowerCase()){
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
+
+sortNotes(notes)
+
+console.log(notes)
