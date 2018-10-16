@@ -32,12 +32,19 @@ const notes = [{
 // }
 
 const findNote = (notes, noteTitle) => {
-  const noteIndex = notes.findIndex((note, index) => {
-      return note.title === noteTitle
+  return notes.find((note, index) => {
+      return note.title.toLowerCase() === noteTitle.toLowerCase()
   })
-
 }
 
+// const findNote = (notes, noteTitle) => {
+//   const noteIndex = notes.findIndex((note, index) => {
+//       return note.title.toLowerCase() === noteTitle.toLowerCase()
+//   })
+//   return notes[noteIndex]
+// }
+const foundNote = findNote(notes, "vacation")
+console.log(foundNote)
 
 // const noteIndex = notes.findIndex((note, index) => {
 //   console.log(note)
