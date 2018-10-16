@@ -37,14 +37,24 @@ const findNote = (notes, noteTitle) => {
   })
 }
 
+const findNotes = function(notes, query){
+  notes.filter((note, index) => {
+    const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+    return isTitleMatch || isBodyMatch 
+  })
+}
+
+ console.log(filteredNotes)
+
 // const findNote = (notes, noteTitle) => {
 //   const noteIndex = notes.findIndex((note, index) => {
 //       return note.title.toLowerCase() === noteTitle.toLowerCase()
 //   })
 //   return notes[noteIndex]
 // }
-const foundNote = findNote(notes, "vacation")
-console.log(foundNote)
+// const foundNote = findNote(notes, "vacation")
+// console.log(foundNote)
 
 // const noteIndex = notes.findIndex((note, index) => {
 //   console.log(note)
