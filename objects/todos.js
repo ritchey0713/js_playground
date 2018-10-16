@@ -31,19 +31,29 @@ const todos = [
 //   console.log(`${i + 1}. ${todos[i]} `)
 // }
 
-const searchTodos = (todos, text) => {
-  const deleteIndex = todos.findIndex((todo, index) => {
-    return todo.text.toLowerCase() === text.toLowerCase() 
+// const searchTodos = (todos, text) => {
+//   const deleteIndex = todos.findIndex((todo, index) => {
+//     return todo.text.toLowerCase() === text.toLowerCase() 
+//   })
+//   if(deleteIndex > -1){
+//     todos.splice(deleteIndex, 1)
+//   }
+// }
+
+
+
+
+// searchTodos(todos, "finish car")
+// // console.log(findTodo)
+
+// //remove by index splice?
+
+// console.log(todos)
+
+const getThingsToDo = function(todos){
+  return todos.filter((todo, index) => {
+    return todo.completed === false
   })
-  if(deleteIndex > -1){
-    todos.splice(deleteIndex, 1)
-  }
 }
 
-
-searchTodos(todos, "finish car")
-// console.log(findTodo)
-
-//remove by index splice?
-
-console.log(todos)
+console.log(getThingsToDo(todos))
