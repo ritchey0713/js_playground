@@ -1,7 +1,7 @@
 const todos = [
   {
     text: "finish car",
-    completed: false}, 
+    completed: true}, 
   {
     text:'get better at JS',
     completed: false}, 
@@ -10,7 +10,7 @@ const todos = [
     completed: true}, 
   { 
     text:"buy more stuffs!",
-  completed:true }]
+  completed: false }]
 
 // console.log(`You have ${todos.length} things! to do`)
 
@@ -56,4 +56,19 @@ const getThingsToDo = function(todos){
   })
 }
 
-console.log(getThingsToDo(todos))
+// console.log(getThingsToDo(todos))
+
+const sortToDos = (todos) => {
+  todos.sort((a, b) => {
+    if(a.completed < b.completed){
+      return -1
+    } else if (a.completed > b.completed){
+      return 1 
+    } else {
+      return 0
+    }
+  })
+}
+
+sortToDos(todos)
+console.log(todos)
