@@ -60,9 +60,9 @@ const getThingsToDo = function(todos){
 
 const sortToDos = (todos) => {
   todos.sort((a, b) => {
-    if(a.completed < b.completed){
+    if(!a.completed && b.completed){
       return -1
-    } else if (a.completed > b.completed){
+    } else if (a.completed && !b.completed){
       return 1 
     } else {
       return 0
