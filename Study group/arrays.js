@@ -13,7 +13,7 @@ const notes = [{
 }]
 
 const listNotes = notes.forEach((note, index) => {
-  console.log(`${index}.${note.title}: ${note.body}`)
+  console.log(`${index +1 }.${note.title}: ${note.body}`)
 })
 
 listNotes
