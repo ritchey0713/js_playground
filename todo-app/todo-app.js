@@ -24,36 +24,41 @@ const filters = {
   searchText: ''
 }
 
-const renderNotes = function(notes, filters){
-  const filteredNotes = notes.filter((note) => {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase)
+const renderTodos = function(todos, filters){
+  const filteredtodos = todos.filter((todo) => {
+    return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
   })
-  console.log(filteredNotes)
+  document.querySelector('#todos').innerHTML = ""
+  filteredtodos.forEach(todo => {
+    const todoele = document.createElement('p')
+    todoele.textContent = todo.text
+    document.querySelector('#todos').appendChild(todoele)
+  })
 }
 
-renderNotes(notes, filters)
+renderTodos(todos, filters)
 
-const toDosUnfinished =  todos.filter((todo) => {
-    return todo.completed === false 
-  })
+// const toDosUnfinished =  todos.filter((todo) => {
+//     return todo.completed === false 
+//   })
 
  
 
-const toDoLeft = document.createElement("p")
-toDoLeft.textContent = `You have ${toDosUnfinished.length} left`
-document.querySelector('body').appendChild(toDoLeft)
+// const toDoLeft = document.createElement("p")
+// toDoLeft.textContent = `You have ${toDosUnfinished.length} left`
+// document.querySelector('body').appendChild(toDoLeft)
 
-todos.forEach((todo) => {
-  const todoText = document.createElement('p')
-  todoText.textContent = todo.text
-  document.querySelector('body').appendChild(todoText)
-}) 
+// todos.forEach((todo) => {
+//   const todoText = document.createElement('p')
+//   todoText.textContent = todo.text
+//   document.querySelector('body').appendChild(todoText)
+// }) 
 
-document.querySelector('#add-todo').addEventListener("click", (e) => {
-  console.log('clicked!')
-})
+// document.querySelector('#add-todo').addEventListener("click", (e) => {
+//   console.log('clicked!')
+// })
 
 document.querySelector('#add-todo-text').addEventListener('input', (e) => {
   filters.searchText = e.target.value
-  renderNotes(notes, filters)
+  renderTodos(todos, filters)
 })
