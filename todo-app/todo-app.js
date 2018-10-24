@@ -20,6 +20,19 @@ const todos = [
 //   }
 // })
 
+const filters = {
+  searchText: ''
+}
+
+const renderNotes = function(notes, filters){
+  const filteredNotes = notes.filter((note) => {
+    return note.title.toLowerCase().includes(filters.searchText.toLowerCase)
+  })
+  console.log(filteredNotes)
+}
+
+renderNotes(notes, filters)
+
 const toDosUnfinished =  todos.filter((todo) => {
     return todo.completed === false 
   })
@@ -36,7 +49,11 @@ todos.forEach((todo) => {
   document.querySelector('body').appendChild(todoText)
 }) 
 
-document.querySelector('button').addEventListener("click", (e) => {
+document.querySelector('#add-todo').addEventListener("click", (e) => {
   console.log('clicked!')
 })
 
+document.querySelector('#add-todo-text').addEventListener('input', (e) => {
+  filters.searchText = e.target.value
+  renderNotes(notes, filters)
+})
