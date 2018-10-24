@@ -12,13 +12,7 @@ const notes = [{
   body: "Network more and more!!!"
 }]
 
-const ps = document.querySelectorAll('p')
-
-ps.forEach(p => {
-  p.textContent = "******"
-});
-
-// add new element 
-const newPara = document.createElement('p')
-newPara.textContent  = 'this is a new element'
-document.querySelector('body').appendChild(newPara)
+document.querySelector('button').addEventListener('click', function(e){
+  console.log(e)
+  e.target,this.textContent = "clicked!"
+})
