@@ -31,9 +31,20 @@ const renderTodos = function(todos, filters){
 }
 
 const generateToDoDom = (todo) => {
-  const todoText = document.createElement('p')
-      todoText.textContent = todo.text
-      return todoText
+  const toDoContainer = document.createElement('div')
+  const todoText = document.createElement('span')
+  const button = document.createElement('button')
+ // create checkbox
+  const checkbox = document.createElement('INPUT')
+  checkbox.setAttribute('type', 'checkbox')
+  button.textContent = 'x'
+
+  toDoContainer.appendChild(checkbox)
+  
+  todoText.textContent = todo.text
+  toDoContainer.appendChild(todoText)
+  toDoContainer.appendChild(button)
+  return toDoContainer
 }
 
 const summaryDom = (toDosUnfinished) => {

@@ -6,15 +6,24 @@ const getSavedNotes = () => {
       return []
     }
 }
-
+//generate dom structure
 const generateNoteDom = (note) => {
-  const noteElement = document.createElement('p')
+  const noteElement = document.createElement('div')
+  const textElement = document.createElement('span')
+  const button = document.createElement('button')
 
+// wire delete button 
+  button.textContent = "x"
+  noteElement.appendChild(button)
+  
+//setup note text
       if(note.title > 0 ){
-        noteElement.textContent = note.title
+        textElement.textContent = note.title
       }else{
-        noteElement.textContent = 'Unnamed note'
+        textElement.textContent = 'Unnamed note'
       }
+
+    noteElement.appendChild(textElement)
     return noteElement
 }
 
