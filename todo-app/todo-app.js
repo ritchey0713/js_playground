@@ -20,6 +20,8 @@ const todos = [
 //   }
 // })
 
+// add
+
 const filters = {
   searchText: '',
   hideComplete: false
