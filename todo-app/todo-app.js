@@ -19,8 +19,10 @@ document.querySelector('#search-text').addEventListener('input', (e) => {
 document.querySelector('#add-todo').addEventListener('submit', e => {
   e.preventDefault()
   toDoName = e.target.elements.addToDo.value
-  todos.push( { text: toDoName,
-                completed: false
+  todos.push( { 
+    id: uuidv4(),
+    text: toDoName,
+    completed: false
   })
     saveTodos(todos)
    e.target.elements.addToDo.value = ""
