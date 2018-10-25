@@ -28,17 +28,13 @@ const filters = {
 }
 
 const renderTodos = function(todos, filters){
-  let filteredTodos = todos.filter((todo) => {
-    return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+  const filteredTodos = todos.filter((todo) => {
+    const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+    const hideCompletedMatch = !filters.hideComplete || !todo.completed
+    return searchTextMatch && hideCompletedMatch
   })
 
-  filteredTodos = filteredTodos.filter(todo => {
-    if(filters.hideComplete){
-      return !todo.completed
-    }else{
-      return true
-    }
-  })
+ 
 
   const toDosUnfinished =  filteredTodos.filter((todo) => {
     return !todo.completed 
