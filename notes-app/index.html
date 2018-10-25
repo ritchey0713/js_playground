@@ -10,6 +10,11 @@
   <body>
     <h1>Note App</h1>
     <h2>Take notes and dont forget!</h2>
+    <select id="filter-by">
+      <option value="byEdited">Sort by last Edited</option>
+      <option value="byCreated">Sort by newest</option>
+      <option value="byAlpha">Sort by alphabetically</option>
+    </select>
     <input id="search-text" type="text">
     <button id='create-note'>Create Note</button>
     <p class='note'> created in 2018</p>
@@ -17,10 +22,6 @@
     <div id="notes">
 
     </div>
-    
-    <label>
-      <input id="for-fun" type="checkbox"> Check me!
-    </label>
     <script src="notes-app.js"></script>
   </body>
 </html>

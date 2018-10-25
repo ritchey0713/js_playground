@@ -34,8 +34,6 @@ const renderTodos = function(todos, filters){
     return searchTextMatch && hideCompletedMatch
   })
 
- 
-
   const toDosUnfinished =  filteredTodos.filter((todo) => {
     return !todo.completed 
   })
