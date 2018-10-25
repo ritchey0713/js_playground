@@ -1,30 +1,14 @@
-const todos = [
-  {
-    text: "finish car",
-    completed: true}, 
-  {
-    text:'get better at JS',
-    completed: false}, 
-  {
-    text: "get a new job!",
-    completed: true}, 
-  { 
-    text:"buy more stuffs!",
-  completed: false }]
-
-// const ps = document.querySelectorAll('p')
-
-// ps.forEach((item) => {
-//   if(item.textContent.includes("the")){
-//     item.remove()
-//   }
-// })
-
-// add
+let todos = []
 
 const filters = {
   searchText: '',
   hideComplete: false
+}
+
+const toDoJSON = localStorage.getItem('toDos')
+
+if(toDoJSON != null){
+ todos = JSON.parse(toDoJSON)
 }
 
 const renderTodos = function(todos, filters){
@@ -64,6 +48,7 @@ document.querySelector('#add-todo').addEventListener('submit', e => {
   todos.push( { text: toDoName,
                 completed: false
   })
+  localStorage.setItem('toDos', JSON.stringify(todos))
    e.target.elements.addToDo.value = ""
     renderTodos(todos, filters)
 })
