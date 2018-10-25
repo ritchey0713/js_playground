@@ -28,3 +28,7 @@ const renderNotes = function(notes, filters){
       document.querySelector('#notes').appendChild(noteElement)
     })
 }
+
+const saveNotes = (notes) => {
+  localStorage.setItem('notes', JSON.stringify(notes))
+}
