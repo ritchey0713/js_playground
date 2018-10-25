@@ -61,5 +61,5 @@ document.querySelector('#add-todo').addEventListener('submit', e => {
                 completed: false
   })
    e.target.elements.addToDo.value = ""
-  console.log(todos)
+    renderTodos(todos, filters)
 })
