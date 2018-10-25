@@ -1,39 +1,13 @@
-let todos = []
+const todos = getSavedTodos()
 
 const filters = {
   searchText: '',
   hideComplete: false
 }
 
-const toDoJSON = localStorage.getItem('toDos')
 
-if(toDoJSON != null){
- todos = JSON.parse(toDoJSON)
-}
 
-const renderTodos = function(todos, filters){
-  const filteredTodos = todos.filter((todo) => {
-    const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-    const hideCompletedMatch = !filters.hideComplete || !todo.completed
-    return searchTextMatch && hideCompletedMatch
-  })
 
-  const toDosUnfinished =  filteredTodos.filter((todo) => {
-    return !todo.completed 
-  })
-
-  document.querySelector('#todos').innerHTML = ""
-  
-  const toDoLeft = document.createElement("p")
-toDoLeft.textContent = `You have ${toDosUnfinished.length} left`
-document.querySelector('#todos').appendChild(toDoLeft)
-
-filteredTodos.forEach((todo) => {
-  const todoText = document.createElement('p')
-      todoText.textContent = todo.text
-      document.querySelector('#todos').appendChild(todoText)
-  }) 
-}
 
 renderTodos(todos, filters)
 
@@ -48,7 +22,7 @@ document.querySelector('#add-todo').addEventListener('submit', e => {
   todos.push( { text: toDoName,
                 completed: false
   })
-  localStorage.setItem('toDos', JSON.stringify(todos))
+    saveTodos(todos)
    e.target.elements.addToDo.value = ""
     renderTodos(todos, filters)
 })
