@@ -5,10 +5,6 @@ const filters = {
   hideComplete: false
 }
 
-
-
-
-
 renderTodos(todos, filters)
 
 document.querySelector('#search-text').addEventListener('input', (e) => {
