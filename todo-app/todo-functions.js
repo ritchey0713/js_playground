@@ -38,7 +38,7 @@ const removeToDo = (id) => {
 }
 
 const toggleCheckBox = (id) => {
-  const toDoUpdate = todos.findIndex((todo) => {
+  todos.find((todo) => {
     if(todo.id === id){
       todo.completed = !todo.completed
     }
