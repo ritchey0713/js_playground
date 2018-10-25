@@ -49,11 +49,17 @@ filteredtodos.forEach((todo) => {
 
 renderTodos(todos, filters)
 
-document.querySelector('#add-todo').addEventListener("click", (e) => {
-  console.log('clicked!')
-})
-
-document.querySelector('#add-todo-text').addEventListener('input', (e) => {
+document.querySelector('#search-text').addEventListener('input', (e) => {
   filters.searchText = e.target.value
   renderTodos(todos, filters)
+})
+
+document.querySelector('#add-todo').addEventListener('submit', e => {
+  e.preventDefault()
+  toDoName = e.target.elements.addToDo.value
+  todos.push( { text: toDoName,
+                completed: false
+  })
+   e.target.elements.addToDo.value = ""
+  console.log(todos)
 })

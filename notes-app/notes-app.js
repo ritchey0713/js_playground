@@ -43,4 +43,6 @@ document.querySelector('#search-text').addEventListener('input', (e) => {
 
 document.querySelector('#name-form').addEventListener('submit', (e) => {
   e.preventDefault()
+  console.log(e.target.elements.firstName.value)
+  e.target.elements.firstName.value = ""
 })
