@@ -35,13 +35,12 @@ document.querySelector('#create-note').addEventListener('click', function(e){
   e.target,this.textContent = "clicked!"
 })
 
-document.querySelector('#remove-all').addEventListener('click', () => {
-  document.querySelectorAll('.note').forEach((note) => {
-    note.remove()
-  })
-})
 
 document.querySelector('#search-text').addEventListener('input', (e) => {
   filters.searchText = e.target.value
   renderNotes(notes, filters)
+})
+
+document.querySelector('#name-form').addEventListener('submit', (e) => {
+  e.preventDefault()
 })
