@@ -1,5 +1,5 @@
 let notes = getSavedNotes()
-
+const timeStamp = moment()
 const filters = {
   searchText: ''
 }
@@ -8,13 +8,13 @@ renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click', function(e){
   const id = uuidv4()
-  let time = moment()
+  
   notes.push({
     id: id,
     title: "",
     body: "",
-    createdAt: time,
-    editedAt: time
+    createdAt: timeStamp,
+    editedAt: timeStamp
   })
   saveNotes(notes)
   // id = notes[notes.length - 1].id
