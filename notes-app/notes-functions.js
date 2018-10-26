@@ -36,7 +36,7 @@ const generateNoteDom = (note) => {
   })
 
 //setup note text
-      if(note.title > 0 ){
+      if(note.title.length > 0 ){
         textElement.textContent = note.title
       }else{
         textElement.textContent = 'Unnamed note'
