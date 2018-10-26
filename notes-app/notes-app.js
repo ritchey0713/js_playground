@@ -1,5 +1,5 @@
 let notes = getSavedNotes()
-const timeStamp = moment()
+const timeStamp = moment().valueOf()
 const filters = {
   searchText: ''
 }

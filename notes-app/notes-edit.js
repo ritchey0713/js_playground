@@ -1,4 +1,5 @@
-const editDate = moment()
+const editDate = moment().valueOf()
+
 const titleElement = document.querySelector('#note-title')
 const bodyElement = document.querySelector('#note-body')
 const removeButton = document.querySelector('#remove-note')
