@@ -1,8 +1,8 @@
 const editDate = moment().valueOf()
-
 const titleElement = document.querySelector('#note-title')
 const bodyElement = document.querySelector('#note-body')
 const removeButton = document.querySelector('#remove-note')
+const updateElement = document.querySelector('#updated-at')
 
 const noteId = location.hash.substring(1)
 let notes = getSavedNotes()
@@ -16,6 +16,8 @@ if(note === undefined){
 
 titleElement.value = note.title 
 bodyElement.value = note.body 
+updateElement.textContent = updatedTime(note.editedAt)
+
 
 titleElement.addEventListener('input', (e) => {
   note.title = e.target.value
@@ -48,6 +50,6 @@ window.addEventListener('storage', (e) => {
     
     titleElement.value = note.title 
     bodyElement.value = note.body 
-    
+    updateElement.textContent = updatedTime(note.editedAt)
   }
 })
