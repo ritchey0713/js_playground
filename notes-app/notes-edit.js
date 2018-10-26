@@ -1,3 +1,4 @@
+const editDate = moment()
 const titleElement = document.querySelector('#note-title')
 const bodyElement = document.querySelector('#note-body')
 const removeButton = document.querySelector('#remove-note')
@@ -17,11 +18,13 @@ bodyElement.value = note.body
 
 titleElement.addEventListener('input', (e) => {
   note.title = e.target.value
+  note.editedAt = editDate
   saveNotes(notes)
 })
 
 bodyElement.addEventListener('input', (e) => {
   note.body = e.target.value
+  note.editedAt = editDate
   saveNotes(notes)
 })
 
