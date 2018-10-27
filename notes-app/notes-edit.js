@@ -16,18 +16,18 @@ if(note === undefined){
 
 titleElement.value = note.title 
 bodyElement.value = note.body 
-updateElement.textContent = updatedTime(note.editedAt)
+updateElement.textContent = updatedTime(note.updatedAt)
 
 
 titleElement.addEventListener('input', (e) => {
   note.title = e.target.value
-  note.editedAt = editDate
+  note.updatedAt = editDate
   saveNotes(notes)
 })
 
 bodyElement.addEventListener('input', (e) => {
   note.body = e.target.value
-  note.editedAt = editDate
+  note.updatedAt = editDate
   saveNotes(notes)
 })
 
@@ -50,6 +50,6 @@ window.addEventListener('storage', (e) => {
     
     titleElement.value = note.title 
     bodyElement.value = note.body 
-    updateElement.textContent = updatedTime(note.editedAt)
+    updateElement.textContent = updatedTime(note.updatedAt)
   }
 })
