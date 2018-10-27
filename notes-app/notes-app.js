@@ -7,7 +7,7 @@ const filters = {
 
 renderNotes(notes, filters)
 
-document.querySelector('#create-note').addEventListener('click', function(e){
+document.querySelector('#create-note').addEventListener('click', (e) => {
   const id = uuidv4()
   
   notes.push({
@@ -39,7 +39,7 @@ window.addEventListener('storage', (e) => {
     renderNotes(notes, filters)
 })
 
-const now = moment()
+//const now = moment()
 // now.subtract(1, 'week').subtract(20, 'days')
 
 // console.log(now.toString())
@@ -58,4 +58,3 @@ const now = moment()
 
 // bDay.year(1990).month(3).date(7)
 // console.log(bDay.format('ll'))
-console.log(now)

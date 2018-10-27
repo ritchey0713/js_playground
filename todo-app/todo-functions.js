@@ -1,13 +1,8 @@
 const getSavedTodos = () => {
   const toDoJSON = localStorage.getItem('todos')
-
-  if(toDoJSON != null){
-  return JSON.parse(toDoJSON)
-  }else{
-    return []
-  }
+  return toDoJSON !== null ? JSON.parse(toDoJSON) : [] 
 }
-
+ 
 const saveTodos = (todos) => {
   localStorage.setItem('todos', JSON.stringify(todos))
 }
@@ -19,9 +14,7 @@ const renderTodos = function(todos, filters){
     return searchTextMatch && hideCompletedMatch
   })
 
-  const toDosUnfinished =  filteredTodos.filter((todo) => {
-    return !todo.completed 
-  })
+  const toDosUnfinished =  filteredTodos.filter((todo) => !todo.completed)
 
   document.querySelector('#todos').innerHTML = ""
   summaryDom(toDosUnfinished) 

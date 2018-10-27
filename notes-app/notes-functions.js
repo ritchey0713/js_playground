@@ -1,18 +1,13 @@
 
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem('notes')
-    if(notesJSON != null){
-      return JSON.parse(notesJSON)
-    }else{
-      return []
-    }
+    return notesJSON !== null ? JSON.parse(notesJSON) : []
+    
 }
 
 //remove note from list 
 const removeNote = (id) => {
-  const noteIndex = notes.findIndex((note) => {
-    return note.id === id 
-  })
+  const noteIndex = notes.findIndex((note) => note.id === id )
 
   if(noteIndex > -1){
     notes.splice(noteIndex, 1)
@@ -83,11 +78,10 @@ const sortNotes = (notes, sortBy) => {
   }
 }
 
-const renderNotes = function(notes, filters){
+const renderNotes = (notes, filters) => {
   notes = sortNotes(notes, filters.sortBy)
-  const filteredNotes = notes.filter((note) => {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
-  })
+  const filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+  )
     document.querySelector('#notes').innerHTML = ""
     filteredNotes.forEach(note => {
      const noteElement =  generateNoteDom(note)
@@ -101,6 +95,4 @@ const saveNotes = (notes) => {
 
 // generate last updated at 
 
-const updatedTime = (timeStamp) => {
-  return `Last updated: ${moment(timeStamp).fromNow()}`
-}
+const updatedTime = (timeStamp) =>  (`Last updated: ${moment(timeStamp).fromNow()}`)
