@@ -1,13 +1,10 @@
 const square = (num) =>  num*num
 
-
-
-
 const squareLong = (num) => {
   return num*num
 }
 
-console.log(square(10))
+//console.log(square(10))
 
 const people = [
   {name: "John",
@@ -29,8 +26,23 @@ const people = [
 
 const under30 = people.filter(person => person.age < 30)
 
-console.log(under30)
+//console.log(under30)
 
 const find_person = people.find(person => person.age === 45)
 
-console.log(find_person.name)
+//console.log(find_person.name)
+
+const add = (a, b) => {
+  return arguments[0] + arguments[1]
+}
+
+//console.log(add(11, 22, 33, 44))
+
+const car = {
+  color: 'red',
+  getSummary(){
+    return this.color
+  }
+}
+
+console.log(car.getSummary())
