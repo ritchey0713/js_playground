@@ -1,3 +1,4 @@
+'use strict'
 
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem('notes')
