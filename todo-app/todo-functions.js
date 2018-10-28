@@ -1,3 +1,5 @@
+'use strict'
+
 const getSavedTodos = () => {
   const toDoJSON = localStorage.getItem('todos')
 
