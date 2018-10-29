@@ -2,51 +2,61 @@ const Hangman = function(word, guessesLeft, guessedLetters){
   this.word = word.toLowerCase().split("")
   this.guessesLeft = guessesLeft
   this.guessedLetters = []
+  this.status = "playing"
 }
 
-
-
-// Hangman.prototype.getPuzzle = function (){
-//   let puzzle = ""
-//   this.word.forEach(letter => {
-//     if(this.guessedLetters.includes(letter)){
-//       puzzle += letter
-//     }else{
-//       puzzle += "*"
+// Hangman.prototype.getStatus = function(){
+//   let newWord = []
+//   this.word.forEach((letter) => {
+//     if (this.guessedLetters.includes(letter)){
+//       newWord.push(letter)
 //     }
+//     if (newWord.toString() === this.word.toString())
+//     this.status = 'Finished'
 //   })
-
-//     return puzzle
+//   if(this.guessesLeft < 1){
+//     this.status = "Failed" 
+//   }
+//   console.log(this.status) 
 // }
+
+Hangman.prototype.getStatus = function(){
+  let finished = true 
+
+  this.word.forEach((letter) => {
+    if(this.guessedLetters.includes(letter)){
+    }else{
+      finished = false
+    }
+  })
+  
+ if(this.guessesLeft < 1){
+    this.status = "Failed" 
+  } else if (finished){
+    this.status = "finished"
+  }else {
+    this.status = 'playing'
+  }
+  
+}
 
 Hangman.prototype.getPuzzle = function (){
-    let puzzle = ""
-    this.word.forEach(letter => {
-      if(this.guessedLetters.includes(letter)){
-        puzzle += letter
-      }else{
-        puzzle += "*"
-      }
-    })
-  
-      return puzzle
-  }
+  let puzzle = ""
+  this.word.forEach(letter => {
+    if(this.guessedLetters.includes(letter)){
+      puzzle += letter
+    }else{
+      puzzle += "*"
+    }
+  })
 
-//  Hangman.prototype.makeGuess = (game, char, guesses) => {
-//   if (game.word.includes(char)){
-//     game.word += char
-//   }else {
-//     game.word += "*"
-//     guesses -= 1
-//   }
-//   `${guesses}`
-// }
-
+    return puzzle
+}
 
 Hangman.prototype.makeGuess = function(guess){
-  guess = guess.toLowerCase()
-  const isUnique = !this.guessedLetters.includes(guess)
-  const isBadGuess = !this.word.includes(guess)
+guess = guess.toLowerCase()
+const isUnique = !this.guessedLetters.includes(guess)
+const isBadGuess = !this.word.includes(guess)
 
   if(isUnique){
     this.guessedLetters.push(guess)
@@ -54,21 +64,6 @@ Hangman.prototype.makeGuess = function(guess){
   if(isUnique && isBadGuess){
     this.guessesLeft--
   }
-
-  
+  this.getStatus()
 } 
 
-
-gameOne = new Hangman("dog", 3)
-
-console.log(gameOne.getPuzzle())
-console.log(gameOne.guessesLeft)
-
-
-window.addEventListener('keypress', (e) => {
-  const guess = String.fromCharCode(e.charCode)
-  gameOne.makeGuess(guess)
-
-console.log(gameOne.getPuzzle())
-console.log(gameOne.guessesLeft)
-})
