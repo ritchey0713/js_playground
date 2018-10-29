@@ -5,7 +5,7 @@ const guessesDOM = document.querySelector("#guesses-left")
 
 gameWord.textContent = gameOne.getPuzzle()
 guessesDOM.textContent = gameOne.guessesLeft
-console.log(gameOne.status)
+//console.log(gameOne.status)
 
 
 window.addEventListener('keypress', (e) => {
