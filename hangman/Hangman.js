@@ -11,24 +11,32 @@ const Hangman = function(word, guessesLeft, guessedLetters){
 //     if (this.guessedLetters.includes(letter)){
 //       newWord.push(letter)
 //     }
-//     if (newWord.toString() === this.word.toString())
+//     if (newWord.toString() === this.word.toString)
 //     this.status = 'Finished'
 //   })
 //   if(this.guessesLeft < 1){
 //     this.status = "Failed" 
-//   }
-//   console.log(this.status) 
+//   } 
 // }
 
 Hangman.prototype.getStatus = function(){
-  let finished = true 
+const finished = this.word.every((letter) => this.guessedLetters.includes(letter))
 
-  this.word.forEach((letter) => {
-    if(this.guessedLetters.includes(letter)){
-    }else{
-      finished = false
-    }
-  })
+//sol 2 
+  //  const lettersUnguessed = this.word.filter((letter) => {
+//    return !this.guessedLetters.includes(letter)
+//  })
+//  const finished = lettersUnguessed.length === 0 
+ 
+ //sol 1 
+  // let finished = true 
+
+  // this.word.forEach((letter) => {
+  //   if(this.guessedLetters.includes(letter)){
+  //   }else{
+  //     finished = false
+  //   }
+  // })
   
  if(this.guessesLeft < 1){
     this.status = "Failed" 
