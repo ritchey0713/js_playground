@@ -51,8 +51,6 @@ class Hangman {
       }
       this.getStatus()
     } 
-    
-    
 }
 
 
