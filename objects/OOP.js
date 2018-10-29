@@ -37,10 +37,10 @@ class Employee extends Person {
 
 }
 
-const myPerson = new Employee("John", "Smith", 28, "Developer", ["Gaming", "Coding"] )
-myPerson.setName("Tom Wells")
-console.log(myPerson.getBio())
-console.log(myPerson.getYearsLeft())
+// const myPerson = new Employee("John", "Smith", 28, "Developer", ["Gaming", "Coding"] )
+// myPerson.setName("Tom Wells")
+// console.log(myPerson.getBio())
+// console.log(myPerson.getYearsLeft())
 
 // const Person = function(firstName, lastName, age, likes){
 //   this.firstName = firstName 
@@ -71,6 +71,28 @@ console.log(myPerson.getYearsLeft())
 // me.setName("Dave Smith")
 // console.log(me.getBio())
 
-const person2 = new Person("Tony", "Turner", 19, ["Golfing", "Frisbee"])
+// const person2 = new Person("Tony", "Turner", 19, ["Golfing", "Frisbee"])
 
-console.log(person2.getBio())
+// console.log(person2.getBio())
+
+class Student extends Person{
+  constructor(firstName, lastName, age, grade, likes){
+    super(firstName, lastName, age, likes)
+    this.grade = grade
+  }
+  getBio(){
+    if(this.grade >= 70){
+      return `${this.firstName} ${this.lastName} is passing!`
+    }else {
+      return `${this.firstName} ${this.lastName} is failing!`
+    }
+  }
+  updateGrade(addPoints){
+    return this.grade += addPoints
+  }
+}
+
+const Jimmy = new Student("Jimmy", "Neutron", 8)
+console.log(Jimmy)
+console.log(Jimmy.updateGrade(90))
+console.log(Jimmy)
