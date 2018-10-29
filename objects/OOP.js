@@ -92,7 +92,7 @@ class Student extends Person{
   }
 }
 
-const Jimmy = new Student("Jimmy", "Neutron", 8)
+const Jimmy = new Student("Jimmy", "Neutron", 28, 8, [])
 console.log(Jimmy)
 console.log(Jimmy.updateGrade(90))
 console.log(Jimmy)
