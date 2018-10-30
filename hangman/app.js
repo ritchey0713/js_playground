@@ -1,10 +1,10 @@
-gameOne = new Hangman("dog", 3)
+gameOne = new Hangman("car parts", 3)
 
 const gameWord = document.querySelector('#game-word')
 const guessesDOM = document.querySelector("#guesses-left")
 
-gameWord.textContent = gameOne.getPuzzle()
-guessesDOM.textContent = gameOne.statusMessage()
+gameWord.textContent = gameOne.puzzle
+guessesDOM.textContent = gameOne.statusMessage
 
 
 
@@ -14,8 +14,8 @@ gameOne.makeGuess(guess)
 
 
 
-gameWord.textContent = gameOne.getPuzzle()
-guessesDOM.textContent = gameOne.statusMessage()
+gameWord.textContent = gameOne.puzzle
+guessesDOM.textContent = gameOne.statusMessage
 
 })
 
