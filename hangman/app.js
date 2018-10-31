@@ -18,9 +18,11 @@ gameWord.textContent = gameOne.puzzle
 guessesDOM.textContent = gameOne.statusMessage
 
 })
+
+
 getPuzzle((error, puzzle) => {
   if(error){
-
+    console.log(`Error: ${error}`)
   }else{
     console.log(puzzle)
 
@@ -28,6 +30,10 @@ getPuzzle((error, puzzle) => {
 
 })
 
+
+
+
+console.log("do something else")
 // make http request 
 
 
