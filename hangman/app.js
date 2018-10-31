@@ -20,7 +20,7 @@ guessesDOM.textContent = gameOne.statusMessage
 })
 
 
-getPuzzle((error, puzzle) => {
+getPuzzle("2", (error, puzzle) => {
   if(error){
     console.log(`Error: ${error}`)
   }else{
@@ -29,7 +29,15 @@ getPuzzle((error, puzzle) => {
   }
 
 })
+const countryCode = 'US'
 
+getCountry(countryCode, (error, country) => {
+  if(error){
+    console.log(`ERROR: ${error}`)
+  }else{
+    console.log(country.name)
+  }
+})
 
 
 
