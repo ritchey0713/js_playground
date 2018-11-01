@@ -26,13 +26,19 @@ getPuzzle("2").then((puzzle) => {
   console.log(`error: ${error}`)
 })
 
-const countryCode = 'US'
+// getPuzzle("2").then((puzzle) => {
+//   console.log(puzzle)
+// }, (error) => {
+//   console.log(`error: ${error}`)
+// })
 
-getCountry(countryCode).then((country) => {
-  console.log(country.name)
-}, (error) => {
-  console.log(`ERROR: ${error}`)
-})
+// const countryCode = 'US'
+
+// getCountry(countryCode).then((country) => {
+//   console.log(country.name)
+// }, (error) => {
+//   console.log(`ERROR: ${error}`)
+// })
 
 // make http request 
 
@@ -56,8 +62,14 @@ getCountry(countryCode).then((country) => {
 // request.open('GET', 'http://restcountries.eu/rest/v2/all')
 // request.send()
 
-fetch('http://puzzle.mead.io/puzzle', {}).then((resp) => {
-  console.log(resp)
-}).catch((err)=> {
-  console.log(err)
-})
+// fetch('http://puzzle.mead.io/puzzle', {}).then((resp) => {
+//   if(resp.status === 200){
+//     return resp.json()
+//   }else{
+//      throw new Error("unable to fetch")
+//   }
+// }).then((data) => {
+//   console.log(data.puzzle)
+// }).catch((err)=> {
+//   console.log(err)
+// })
