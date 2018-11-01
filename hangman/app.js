@@ -26,6 +26,14 @@ getPuzzle("2").then((puzzle) => {
   console.log(err)
 })
 
+const countryCode = 'US'
+
+getCountry(countryCode).then((country) => {
+  console.log(country)
+}).catch((err) => {
+  console.log(err)
+})
+
 // getPuzzle("2").then((puzzle) => {
 //   console.log(puzzle)
 // }, (error) => {
