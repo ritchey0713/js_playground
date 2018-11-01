@@ -55,3 +55,9 @@ getCountry(countryCode).then((country) => {
 
 // request.open('GET', 'http://restcountries.eu/rest/v2/all')
 // request.send()
+
+fetch('http://puzzle.mead.io/puzzle', {}).then((resp) => {
+  console.log(resp)
+}).catch((err)=> {
+  console.log(err)
+})
