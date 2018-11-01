@@ -20,28 +20,20 @@ guessesDOM.textContent = gameOne.statusMessage
 })
 
 
-getPuzzle("2", (error, puzzle) => {
-  if(error){
-    console.log(`Error: ${error}`)
-  }else{
-    console.log(puzzle)
-
-  }
-
+getPuzzle("2").then((puzzle) => {
+  console.log(puzzle)
+}, (error) => {
+  console.log(`error: ${error}`)
 })
+
 const countryCode = 'US'
 
-getCountry(countryCode, (error, country) => {
-  if(error){
-    console.log(`ERROR: ${error}`)
-  }else{
-    console.log(country.name)
-  }
+getCountry(countryCode).then((country) => {
+  console.log(country.name)
+}, (error) => {
+  console.log(`ERROR: ${error}`)
 })
 
-
-
-console.log("do something else")
 // make http request 
 
 
