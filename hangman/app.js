@@ -22,8 +22,8 @@ guessesDOM.textContent = gameOne.statusMessage
 
 getPuzzle("2").then((puzzle) => {
   console.log(puzzle)
-}, (error) => {
-  console.log(`error: ${error}`)
+}).catch((err) => {
+  console.log(err)
 })
 
 // getPuzzle("2").then((puzzle) => {
