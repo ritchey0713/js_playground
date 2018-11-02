@@ -26,13 +26,16 @@ getPuzzle("2").then((puzzle) => {
   console.log(err)
 })
 
-const countryCode = 'US'
 
-getCountry(countryCode).then((country) => {
+getLocation().then((location) => {
+  return getCountry(location.country)
+}).then((country) => {
   console.log(country)
 }).catch((err) => {
   console.log(err)
 })
+
+
 
 // getPuzzle("2").then((puzzle) => {
 //   console.log(puzzle)
@@ -81,3 +84,7 @@ getCountry(countryCode).then((country) => {
 // }).catch((err)=> {
 //   console.log(err)
 // })
+
+
+// http://ipinfo.io/json?token=010974ce661a1a
+
