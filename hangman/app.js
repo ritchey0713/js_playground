@@ -1,30 +1,35 @@
-gameOne = new Hangman("car parts", 3)
-
 const gameWord = document.querySelector('#game-word')
 const guessesDOM = document.querySelector("#guesses-left")
-
-gameWord.textContent = gameOne.puzzle
-guessesDOM.textContent = gameOne.statusMessage
-
-
+let gameOne
 
 window.addEventListener('keypress', (e) => {
-const guess = String.fromCharCode(e.charCode)
-gameOne.makeGuess(guess)
-
-
-
-gameWord.textContent = gameOne.puzzle
-guessesDOM.textContent = gameOne.statusMessage
-
+  const guess = String.fromCharCode(e.charCode)
+  gameOne.makeGuess(guess)
+  render()
 })
 
+const render = () => {
+  gameWord.textContent = gameOne.puzzle
+  guessesDOM.textContent = gameOne.statusMessage
+}
 
-getPuzzle("2").then((puzzle) => {
-  console.log(puzzle)
-}).catch((err) => {
-  console.log(err)
-})
+const startGame = async () => {
+  const puzzle = await getPuzzle('2')
+  gameOne = new Hangman(puzzle, 5)
+  render()
+}
+
+document.querySelector('#reset').addEventListener('click', startGame)
+
+startGame()
+
+
+// getPuzzle("2").then((puzzle) => {
+//   console.log(puzzle)
+// }).catch((err) => {
+//   console.log(err)
+// })
+
 
 
 // getLocation().then((location) => {
