@@ -19,15 +19,18 @@ const getPuzzle = async (wordCount) => {
       throw new Error("Error fetching!")
     }
  }
- const getCountry = async (countryCode) => {
-  const resp = await fetch(`http://restcountries.eu/rest/v2/all`, {})
-     if(resp.status === 200){
-       const data = await resp.json()
-       return data.find((country) => country.alpha2Code === countryCode).name
-     } else {
-       throw new Error("Could not fetch Countries")
-     }
-   }
+
+
+
+ //  const getCountry = async (countryCode) => {
+//   const resp = await fetch(`http://restcountries.eu/rest/v2/all`, {})
+//      if(resp.status === 200){
+//        const data = await resp.json()
+//        return data.find((country) => country.alpha2Code === countryCode).name
+//      } else {
+//        throw new Error("Could not fetch Countries")
+//      }
+//    }
  
  
 // const getCountry = (countryCode) => {
@@ -42,15 +45,14 @@ const getPuzzle = async (wordCount) => {
 //   })
 // }
 
-const getLocation = async () => {
-  const resp =  await fetch(`http://ipinfo.io/json?token=010974ce661a1a`, {})
-    if(resp.status === 200){
-      const data = await resp.json()
-      return data
-    }else {
-      throw new Error("Could not fetch data")
-    }
-  }
+// const getLocation = async () => {
+//   const resp =  await fetch(`http://ipinfo.io/json?token=010974ce661a1a`, {})
+//     if(resp.status === 200){
+//       return resp.json()
+//     }else {
+//       throw new Error("Could not fetch data")
+//     }
+//   }
 
 // const getLocation = () => {
 //   return fetch(`http://ipinfo.io/json?token=010974ce661a1a`, {}).then((resp) => {
@@ -64,15 +66,11 @@ const getLocation = async () => {
 //   })
 // }
 
-
-
-
-
-
-
-
-
-
+// const getCurrentCountry = async () => {
+//   const location = await getLocation()
+//   const country = await getCountry(location.country)
+//   return country
+// }
 
 // const getPuzzle = (wordCount) => new Promise((resolve, reject) => {
 //   const request = new XMLHttpRequest()
