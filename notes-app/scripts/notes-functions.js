@@ -22,16 +22,24 @@ const removeNote = (id) => {
 const generateNoteDom = (note) => {
   const noteElement = document.createElement('a')
   const textElement = document.createElement("p")
-
+  const status = document.createElement('p')
 //setup note text
       if(note.title.length > 0 ){
         textElement.textContent = note.title
       }else{
         textElement.textContent = 'Unnamed note'
       }
-console.log(note.id)
-    textElement.setAttribute('href', `/edit.html#${note.id}`)
+    textElement.classList.add('list-item__title')
+
     noteElement.appendChild(textElement)
+    noteElement.setAttribute('href', `/edit.html#${note.id}`)
+    noteElement.classList.add('list-item')
+
+    //setup status 
+    status.textContent = updatedTime(note.updatedAt)
+    status.classList.add('list-item__subtitle')
+    
+    noteElement.appendChild(status)
     return noteElement
 }
 
