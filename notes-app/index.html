@@ -4,18 +4,28 @@
     <title>Note App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/styles/styles.css">
     
   </head>
   <body>
-    <h1>Note App</h1>
-    <h2>Take notes and dont forget!</h2>
-    <select id="filter-by">
-      <option value="byEdited">Sort by last Edited</option>
-      <option value="byCreated">Sort by newest</option>
-      <option value="byAlpha">Sort by alphabetically</option>
-    </select>
-    <input id="search-text" type="text">
+    <div class="header">
+      <div class='container'>
+          <h1 class='header__title'>Note App</h1>
+          <h2 class='header__subtitle'>Take notes and dont forget!</h2>
+      </div>  
+    </div>
+
+    <div class="actions">
+      <div class="actions__container">
+          <select id="filter-by" class='dropdown'>
+              <option value="byEdited">Sort by last Edited</option>
+              <option value="byCreated">Sort by newest</option>
+              <option value="byAlpha">Sort by alphabetically</option>
+            </select>
+            <input id="search-text" class='input' type="text" placeholder="Filter notes">
+      </div>
+    </div>
+    
     <button id='create-note'>Create Note</button>
     <p class='note'> created in 2018</p>
     <p class='note'>App built by Dj Ritchey</p>
