@@ -83,14 +83,23 @@ const sortNotes = (notes, sortBy) => {
 }
 
 const renderNotes = (notes, filters) => {
+  const notesEl = document.querySelector('#notes')
   notes = sortNotes(notes, filters.sortBy)
   const filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase())
   )
-    document.querySelector('#notes').innerHTML = ""
-    filteredNotes.forEach(note => {
-     const noteElement =  generateNoteDom(note)
-      document.querySelector('#notes').appendChild(noteElement)
-    })
+    notesEl.innerHTML = ""
+
+    if(filteredNotes.length > 0){
+      filteredNotes.forEach(note => {
+        const noteElement =  generateNoteDom(note)
+       notesEl.appendChild(noteElement)
+      })
+    } else {
+      const emptyMessage = document.createElement('p')
+      emptyMessage.textContent = 'No notes to show!'
+      emptyMessage.classList.add('empty-message')
+      notesEl.appendChild(emptyMessage)
+    }
 }
 
 const saveNotes = (notes) => {
