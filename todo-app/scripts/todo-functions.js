@@ -33,7 +33,7 @@ const renderTodos = function(todos, filters){
     filteredTodos.forEach((todo) => {
     todosEl.appendChild(generateToDoDom(todo))
     })} else {
-      emptyList.textContent = `No To-Dos to show!`
+      emptyList.textContent = `There are no To-Dos to show!`
       todosEl.appendChild(emptyList)
     } 
 }
