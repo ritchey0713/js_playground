@@ -15,6 +15,8 @@ const saveTodos = (todos) => {
 }
 
 const renderTodos = function(todos, filters){
+  const emptyList = document.createElement('p')
+  const todosEl = document.querySelector('#todos')
   const filteredTodos = todos.filter((todo) => {
     const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
     const hideCompletedMatch = !filters.hideComplete || !todo.completed
@@ -23,11 +25,16 @@ const renderTodos = function(todos, filters){
 
   const toDosUnfinished =  filteredTodos.filter((todo) => !todo.completed)
 
-  document.querySelector('#todos').innerHTML = ""
+  todosEl.innerHTML = ""
   summaryDom(toDosUnfinished) 
-  filteredTodos.forEach((todo) => {
-  document.querySelector('#todos').appendChild(generateToDoDom(todo))
-  }) 
+
+  if(filteredTodos.length > 0){
+    filteredTodos.forEach((todo) => {
+    document.querySelector('#todos').appendChild(generateToDoDom(todo))
+    })} else {
+      emptyList.textContent = `No To-Dos to show!`
+      todosEl.appendChild(emptyList)
+    } 
 }
 
 const removeToDo = (id) => {
