@@ -46,7 +46,8 @@ const toggleCheckBox = (id) => {
 }
 
 const generateToDoDom = (todo) => {
-  const toDoContainer = document.createElement('div')
+  const toDoContainer = document.createElement('label')
+  const containerEl = document.createElement('div')
   const todoText = document.createElement('span')
   const button = document.createElement('button')
   
@@ -54,24 +55,29 @@ const generateToDoDom = (todo) => {
   const checkbox = document.createElement('INPUT')
   checkbox.setAttribute('type', 'checkbox')
   checkbox.checked = todo.completed
-  button.textContent = 'x'
+
+  toDoContainer.classList.add('list-item')
+  containerEl.classList.add('list-item__container')
+  toDoContainer.appendChild(containerEl)
+
+  button.textContent = 'Remove'
+  button.classList.add('button', 'button--text')
   button.addEventListener('click', () => {
     removeToDo(todo.id)
     saveTodos(todos)
     renderTodos(todos, filters)
   })
 
-  checkbox.addEventListener('change', () => {
+    checkbox.addEventListener('change', () => {
     toggleCheckBox(todo.id)
     saveTodos(todos)
     renderTodos(todos, filters)
   })
-
-  toDoContainer.appendChild(checkbox)
-  
+  containerEl.appendChild(checkbox)
   todoText.textContent = todo.text
-  toDoContainer.appendChild(todoText)
+  containerEl.appendChild(todoText)
   toDoContainer.appendChild(button)
+  
   return toDoContainer
 }
 
