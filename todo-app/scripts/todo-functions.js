@@ -82,8 +82,17 @@ const generateToDoDom = (todo) => {
 }
 
 const summaryDom = (toDosUnfinished) => {
-  const summary = document.createElement("p")
-    summary.textContent = `You have ${toDosUnfinished.length} left`
-    document.querySelector('#todos').appendChild(summary)
-    return summary
+  const summary = document.createElement("h2")
+  summary.classList.add('list-title')
+
+  if(toDosUnfinished.length >= 2){
+   summary.textContent = `You have ${toDosUnfinished.length} To-dos left`
+  } else if (toDosUnfinished.length === 1){
+    summary.textContent = `You have a single To-do left!`
+  } else {
+    summary.textContent = `You have no To-Dos currently!`
+  }
+
+  document.querySelector('#todos').appendChild(summary)
+  return summary
 }
